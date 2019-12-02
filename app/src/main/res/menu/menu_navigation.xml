@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <item
+        android:id="@+id/tab1"
+        android:icon="@drawable/ic_tab_black_24dp"
+        android:title="Tab1"
+        tools:ignore="HardcodedText" />
+    <item
+        android:id="@+id/tab2"
+        android:icon="@drawable/ic_tab_black_24dp"
+        android:title="Tab2"
+        tools:ignore="HardcodedText" />
+    <item
+        android:id="@+id/tab3"
+        android:icon="@drawable/ic_tab_black_24dp"
+        android:title="Tab3"
+        tools:ignore="HardcodedText" />
+</menu>

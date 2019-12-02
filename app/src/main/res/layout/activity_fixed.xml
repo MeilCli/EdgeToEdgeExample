@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipChildren="false">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- set StatusBar's height to layout_height on code -->
+            <Space
+                android:id="@+id/statusBarMargin"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_scrollFlags="scroll" />
+
+            <!-- prepare Header's height -->
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                app:layout_scrollFlags="scroll" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingMultiplier="3"
+                android:text="@string/header_item"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                app:layout_scrollFlags="scroll" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <!-- set NavigationBar's height to paddingBottom on code -->
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingMultiplier="3"
+                android:text="@string/content"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <!-- set StatusBar's height layout_marginTop on code -->
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:text="@string/header"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+</FrameLayout>

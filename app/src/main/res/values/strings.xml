@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">EdgeToEdgeExample</string>
+
+    <string name="content">Content\nContent\nContent\nContent\nContent\nContent\nContent\nContent\nContent\nContent\nContent\nContent\nContent\nContent\nContent\nContent\nContent\nContent\nContent\nContent\nContent\nContent\nContent\nContent\nContent</string>
+    <string name="header">Header</string>
+    <string name="header_item">Header Item\nHeader Item\nHeader Item\nHeader Item</string>
+    <string name="tab">tab</string>
+</resources>

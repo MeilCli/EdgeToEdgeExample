@@ -4,9 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.FrameLayout
 import androidx.core.view.ViewCompat
-import androidx.core.view.updateLayoutParams
 import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_navigation.*
@@ -31,9 +29,6 @@ class NavigationFragment : Fragment() {
     private fun fitsNavigationBar() {
         val defaultScrollViewPaddingBottom = scrollView.paddingBottom
         ViewCompat.setOnApplyWindowInsetsListener(scrollView) { _, insets ->
-            /*scrollView.updateLayoutParams<FrameLayout.LayoutParams> {
-                bottomMargin = -insets.systemWindowInsetBottom
-            }*/
             scrollView.updatePadding(bottom = defaultScrollViewPaddingBottom + insets.systemWindowInsetBottom)
             return@setOnApplyWindowInsetsListener insets
         }

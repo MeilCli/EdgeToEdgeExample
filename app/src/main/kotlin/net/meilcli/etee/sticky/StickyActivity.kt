@@ -1,11 +1,12 @@
 package net.meilcli.etee.sticky
 
 import android.os.Bundle
-import android.util.Log
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
+import androidx.core.view.updateLayoutParams
+import androidx.core.view.updatePadding
 import kotlinx.android.synthetic.main.activity_sticky.*
 import net.meilcli.etee.R
 import net.meilcli.etee.extensions.setTranslucentStatusAndNavigationBarLayout
@@ -32,19 +33,16 @@ class StickyActivity : AppCompatActivity() {
 
     private fun fitsStatusBar() {
         ViewCompat.setOnApplyWindowInsetsListener(statusBarMargin) { _, inset ->
-            statusBarMargin.layoutParams = statusBarMargin.layoutParams
-                .apply {
-                    height = inset.systemWindowInsetTop
-                }
+            statusBarMargin.updateLayoutParams {
+                height = inset.systemWindowInsetTop
+            }
             return@setOnApplyWindowInsetsListener inset
         }
 
         ViewCompat.setOnApplyWindowInsetsListener(tabLayout) { _, inset ->
-            tabLayout.layoutParams = tabLayout.layoutParams
-                .let { it as? ViewGroup.MarginLayoutParams }
-                ?.apply {
-                    topMargin = inset.systemWindowInsetTop
-                }
+            tabLayout.updateLayoutParams<ViewGroup.MarginLayoutParams> {
+                topMargin = inset.systemWindowInsetTop
+            }
             return@setOnApplyWindowInsetsListener inset
         }
     }
@@ -52,12 +50,7 @@ class StickyActivity : AppCompatActivity() {
     private fun fitsNavigationBar() {
         val defaultScrollViewPaddingBottom = scrollView.paddingBottom
         ViewCompat.setOnApplyWindowInsetsListener(scrollView) { _, inset ->
-            scrollView.setPadding(
-                scrollView.paddingLeft,
-                scrollView.paddingTop,
-                scrollView.paddingRight,
-                defaultScrollViewPaddingBottom + inset.systemWindowInsetBottom
-            )
+            scrollView.updatePadding(bottom = defaultScrollViewPaddingBottom + inset.systemWindowInsetBottom)
             return@setOnApplyWindowInsetsListener inset
         }
     }
@@ -70,12 +63,6 @@ class StickyActivity : AppCompatActivity() {
     }
 
     private fun setScrollViewPadding() {
-        val paddingTop = defaultScrollViewPaddingTop + scrollViewPaddingTopByTabLayout
-        scrollView.setPadding(
-            scrollView.paddingLeft,
-            paddingTop,
-            scrollView.paddingRight,
-            scrollView.paddingBottom
-        )
+        scrollView.updatePadding(top = defaultScrollViewPaddingTop + scrollViewPaddingTopByTabLayout)
     }
 }

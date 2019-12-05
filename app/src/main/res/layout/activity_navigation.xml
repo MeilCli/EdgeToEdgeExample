@@ -13,6 +13,7 @@
         android:elevation="4dp"
         android:theme="@style/AppTheme.AppBarOverlay">
 
+        <!-- set StatusBar's height to layout_height on code -->
         <Space
             android:id="@+id/statusBarSpace"
             android:layout_width="match_parent"
@@ -35,6 +36,7 @@
         android:layout_above="@id/bottomNavigation"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
+    <!-- set NavigationBar's height to paddingBottom on code -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
